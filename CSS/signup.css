@@ -1,3 +1,9 @@
 body{
     background: #0d1219;
 }
+
+.card-header{
+    background-color:#0d1219;
+    color: white;
+
+}

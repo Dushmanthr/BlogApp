@@ -30,45 +30,48 @@
            <div class="col-md-12">
              
                 <div class="card mt-4">
-                    <div class = "card-header">
+                    <div class = "card-header" id = "card-header">
                           <h4>Sign Up Form</h4>
+
+                         
 
                     </div>    <!--/card-header -->
 
                     <div class = "card-body">
+                        <form action="index.php">
                           <div class="form-group">
-                            <label for="First Name"></label>
+                            <label for="First Name">Fist Name</label>
                             <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>
 
                           <div class="form-group">
-                            <label for="Last Name"></label>
+                            <label for="Last Name">Last Name</label>
                             <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted">Last name</small>
+                            <small id="helpId" class="text-muted"></small>
                           </div>
 
                           <div class="form-group">
-                            <label for="Email"></label>
+                            <label for="Email">Email</label>
                             <input type="email" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted">Email</small>
+                            <small id="helpId" class="text-muted"></small>
                           </div>
 
                           <div class="form-group">
-                            <label for="Password"></label>
+                            <label for="Password">Password</label>
                             <input type="password" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted">Password</small>
+                            <small id="helpId" class="text-muted"></small>
                           </div>
 
                     </div>           <!--/card-body -->
 
                     <div class = "card-footer">
-
+                               <button type="submit" class="btn btn-primary">Sign Up</button>
 
                      </div>            <!--/card-footer -->
 
                    
-
+                </form>
               
 
                 </div><!-- /card -->
