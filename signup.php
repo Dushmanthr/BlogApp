@@ -37,7 +37,7 @@
 
                     </div>    <!--/card-header -->
 
-                    <div class = "card-body">
+                    <div class = "card-body" id = "card-body">
                         <form action="index.php">
                           <div class="form-group">
                             <label for="First Name">Fist Name</label>
@@ -65,7 +65,7 @@
 
                     </div>           <!--/card-body -->
 
-                    <div class = "card-footer">
+                    <div class = "card-footer" id="card-footer">
                                <button type="submit" class="btn btn-primary">Sign Up</button>
 
                      </div>            <!--/card-footer -->
