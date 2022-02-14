@@ -1,7 +1,8 @@
-<?php
-       include_once('inc/navbar.php');
-    ?>
 
+      
+
+
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,10 @@
     <link rel="stylesheet" href="css/signup.css">
 
 </head>
-<body >
+<body>
+<?php
+       include_once('inc/navbar.php');
+    ?>
 
    <div class="container">
        <div class="row">
@@ -33,40 +37,40 @@
                     <div class = "card-header" id = "card-header">
                           <h4>Sign Up Form</h4>
 
-                         
+                             
 
                     </div>    <!--/card-header -->
 
                     <div class = "card-body" id = "card-body">
-                        <form action="index.php">
+                        <form action="signup.php" method ="POST">
                           <div class="form-group">
                             <label for="First Name">Fist Name</label>
-                            <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <input type="text" name="firstname" id="firstname" class="form-control" placeholder="" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>
 
                           <div class="form-group">
                             <label for="Last Name">Last Name</label>
-                            <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>
 
                           <div class="form-group">
                             <label for="Email">Email</label>
-                            <input type="email" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>
 
                           <div class="form-group">
                             <label for="Password">Password</label>
-                            <input type="password" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>
 
                     </div>           <!--/card-body -->
 
                     <div class = "card-footer" id="card-footer">
-                               <button type="submit" class="btn btn-primary">Sign Up</button>
+                               <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
 
                      </div>            <!--/card-footer -->
 
