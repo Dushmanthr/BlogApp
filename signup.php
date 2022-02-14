@@ -1,5 +1,22 @@
 
-      
+      <?php
+        if(isset($_POST['submit'])){
+          //declaring variables and assign empty values
+          $firstname="";
+          $lastname="";
+          $email = "";
+          $password="";
+
+
+        
+            
+
+        }
+        
+
+           
+    
+    ?>
 
 
   
