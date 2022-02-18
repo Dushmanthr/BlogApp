@@ -1,5 +1,9 @@
 
       <?php
+              include_once('inc/connection.php');
+      ?>
+      
+      <?php
         if(isset($_POST['submit'])){
           //declaring variables and assign empty values
           $firstname="";
@@ -7,10 +11,42 @@
           $email = "";
           $password="";
 
+           $firstname = input_varify($_POST['firstname']);
+           $lastname = input_varify($_POST['lastname']);
+           $email = input_varify($_POST['email']);
+           $password = input_varify($_POST['password']);
 
+           $query = "INSERT INTO user_Table(Fname,Lname,email,pwd,Reg_DT) values('{$firstname}', '{$lastname}','{$email}','{$password}',NOW()
+           )";
+              //To process the query
+           $result =mysqli_query($conn,$query);
+               //check if it's successfully process
+           if($result){
+             echo("User registration success");
+           }
+           else{
+               echo mysqli_error($conn);
+           }
         
-            
+           
 
+        }
+
+        function input_varify($data){
+          // to remove empty spaces of the user input
+           $data = trim($data);
+          
+           //to remove the backslashes from the user inputs
+           $data = stripslashes($data);
+
+           //to convert special characters to html entities
+           $data = htmlspecialchars($data);
+
+           return $data;
+
+                
+
+    
         }
         
 
