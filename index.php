@@ -1,4 +1,8 @@
 <?php
+      session_start();
+    ?>
+
+<?php
        include_once('inc/navbar.php');
     ?>
 
@@ -24,6 +28,8 @@
 
 </head>
 <body >
+
+      
 
    <div class="container">
        <div class="row">

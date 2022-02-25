@@ -1,3 +1,40 @@
+<style>
+    #create{
+      border: 1px solid #0066ff;
+      color: #0066ff;
+      padding: 5px;
+      padding-left: 2px;
+    }
+
+    #create:hover{
+      border: 1px solid #0066ff;
+      color: #fff;
+      background:#0066ff;
+    }
+
+    #signout{
+      border: 1px solid #0066ff;
+      color: #0066ff;
+      padding: 5px;
+      padding-left: 2px;
+      width: auto;
+    }
+
+    #signout:hover{
+      border: 1px solid #0066ff;
+      color: #fff;
+      background:#0066ff;
+    }
+
+    .nav-item {
+             
+                padding:10px 5px;
+             
+                
+              }
+
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Navbar</a>
@@ -28,12 +65,41 @@
         </li> -->
       </ul>
     <ul class="navbar-nav >
-    <li class="nav-item style ="float:right; padding-left: 750px;">
-          <a class="nav-link " href="#" >Sign In</a> 
+    <li class="nav-item style ="float:right; padding-left: 950px;">
+          <!-- <a class="nav-link " href="signin.php" >Sign In</a>  -->
           </li>
 
-          <li class="nav-item">
-          <a class="nav-link " href="signup.php" >Sign Up</a> </li>
+          <!-- <li class="nav-item">
+          <a class="nav-link " href="signup.php" >Sign Up</a> </li> -->
+
+          <?php
+               //To remove signin and signup buttons after set the session(after login user)
+               if(isset($_SESSION['User_fname'])){
+                        
+               echo "
+               <li class='nav-item style ='float:right; padding-left: 950px;'>
+               <a id = 'create' class='nav-link ' href='create_post.php' >Create</a> </li>
+
+
+               <li class='nav-item'>
+               <a id = 'signout' class='nav-link ' href='signout.php' >Sign Out</a> </li>
+               ";
+      
+
+               }
+               else{
+                                 
+                echo "
+                <li class='nav-item'>
+                <a class='nav-link ' href='signin.php' >Sign In</a> </li>
+ 
+ 
+                <li class='nav-item'>
+                <a class='nav-link ' href='signup.php' >Sign Up</a> </li>
+                ";
+               }
+          
+          ?>
     </ul>
     </div>
   </div>

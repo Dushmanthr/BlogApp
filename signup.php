@@ -10,25 +10,48 @@
           $lastname="";
           $email = "";
           $password="";
+          $msg = "";
 
            $firstname = input_varify($_POST['firstname']);
            $lastname = input_varify($_POST['lastname']);
            $email = input_varify($_POST['email']);
            $password = input_varify($_POST['password']);
 
-           $query = "INSERT INTO user_Table(Fname,Lname,email,pwd,Reg_DT) values('{$firstname}', '{$lastname}','{$email}','{$password}',NOW()
-           )";
-              //To process the query
-           $result =mysqli_query($conn,$query);
-               //check if it's successfully process
-           if($result){
-             echo("User registration success");
-           }
-           else{
-               echo mysqli_error($conn);
-           }
-        
+          
+         $query1 = "SELECT * FROM user_table WHERE Fname = '{$firstname}' AND email='{$email}'";
+
+         $showResult = mysqli_query($conn,$query1);
            
+         if($showResult){
+             if( mysqli_num_rows($showResult) ==1){
+
+              $msg = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+              <strong>Sorry!</strong> This user already exist.
+              <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+              </button>
+            </div>";
+             }
+
+             else{
+              $query = "INSERT INTO user_Table(Fname,Lname,email,pwd,Reg_DT) values('{$firstname}', '{$lastname}','{$email}','{$password}',NOW()
+              )";
+                 //To process the query
+              $result =mysqli_query($conn,$query);
+                  //check if it's successfully process
+               if($result){
+                $msg = "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
+                <strong>User Registration Success!</strong> Welcome to the DonTube
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+              </div>";
+              }
+              else{
+                  echo mysqli_error($conn);
+              }
+             }
+         }
 
         }
 
@@ -96,6 +119,9 @@
 
                     <div class = "card-body" id = "card-body">
                         <form action="signup.php" method ="POST">
+
+                           <?php if(!empty($msg)){echo $msg;}?>
+
                           <div class="form-group">
                             <label for="First Name">Fist Name</label>
                             <input type="text" name="firstname" id="firstname" class="form-control" placeholder="" aria-describedby="helpId">
