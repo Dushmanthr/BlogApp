@@ -1,4 +1,3 @@
-
 <?php
              session_start();
       ?>
@@ -13,6 +12,54 @@
             header("Location: index.php");
 
           }
+    
+    ?>
+
+    <?php
+              if(isset($_POST['submit'])){
+
+                //Define and assigning values for the variables
+
+                $post_title = Input_varify($_POST['title']);
+                $post_body = Input_varify($_POST['post_body']);
+
+                //write database insert query
+                $query = "INSERT INTO post_table(post_title,post_body,create_at)VALUES('{$post_title}','{$post_body}',NOW())";
+
+                $result = mysqli_query($conn, $query);
+
+
+                if($result){
+                    $msg = "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
+                    <strong>Post successfully created!</strong> Your post is visible now
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                    </button>
+                  </div>";
+                }
+                else{
+                    echo "Post not created".mysqli_error($conn);
+                }
+              }
+
+              function input_varify($data){
+                // to remove empty spaces of the user input
+                 $data = trim($data);
+                
+                 //to remove the backslashes from the user inputs
+                 $data = stripslashes($data);
+      
+                 //to convert special characters to html entities
+                 $data = html_entity_decode($data);
+      
+                 return $data;
+      
+                      
+      
+          
+              }
+
+             
     
     ?>
 

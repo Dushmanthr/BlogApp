@@ -1,9 +1,30 @@
 <?php
       session_start();
     ?>
+    <?php
+       include_once('inc/connection.php');
+    ?>
 
 <?php
        include_once('inc/navbar.php');
+    ?>
+    <?php
+
+          $postbody = "";
+
+         $query = "SELECT * FROM post_Table  ";
+
+         $showpost = mysqli_query($conn,$query);
+
+         if($showpost){
+               if(mysqli_num_rows($showpost) > 0){
+                   
+                 while($post = mysqli_fetch_assoc($showpost)){
+
+                    $postbody = $post['post_body'];
+                 }
+               }
+         }
     ?>
 
 <!DOCTYPE html>
@@ -42,7 +63,12 @@
          
        </div>
    </div>
-
+    <div>
+           <?php
+              echo $postbody;
+           
+           ?>
+    </div>
     
 </body>
 
